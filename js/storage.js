@@ -1,6 +1,6 @@
 /* طبقة البيانات: تحفظ في LocalStorage وتعود لبيانات js/data.js عند عدم وجود تعديلات */
 var DB=(function(){
-var K="mashtal_data_v1";
+var K="mashtal_data_v2";
 function clone(o){return JSON.parse(JSON.stringify(o))}
 return{
  get:function(){try{var d=JSON.parse(localStorage.getItem(K));if(d&&Array.isArray(d.products)&&d.settings)return d}catch(e){}return clone(window.SEED_DATA)},

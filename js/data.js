@@ -9,7 +9,8 @@ window.SEED_DATA={
   "address": "",
   "hours": "",
   "facebook": "",
-  "instagram": ""
+  "instagram": "",
+  "delivery": ""
  },
  "categories": [
   {
@@ -30,7 +31,7 @@ window.SEED_DATA={
    "id": "basil-fresh",
    "name": "ريحان إيطالي فريش",
    "cat": "fresh",
-   "desc": "ريحان إيطالي طازج بأوراق عطرية. السعر للكيلو، ويتوفر بأوزان 100 و200 و500 جرام و1 كيلو.",
+   "desc": "ريحان إيطالي طازج بأوراق عطرية.",
    "images": [
     "assets/images/products/basil-fresh.jpg"
    ],
@@ -40,13 +41,20 @@ window.SEED_DATA={
    "qty": "",
    "available": true,
    "featured": true,
-   "created": 1700000000000
+   "created": 1700000000000,
+   "sellBy": "kg",
+   "weights": [
+    100,
+    200,
+    500,
+    1000
+   ]
   },
   {
    "id": "basil-dry",
    "name": "ريحان مجفف",
    "cat": "dried",
-   "desc": "ريحان مجفف. السعر للكيلو، ويتوفر بأوزان 50 و100 و250 و500 جرام و1 كيلو.",
+   "desc": "ريحان مجفف.",
    "images": [
     "assets/images/products/basil-dry.jpg"
    ],
@@ -56,13 +64,21 @@ window.SEED_DATA={
    "qty": "",
    "available": true,
    "featured": true,
-   "created": 1700000000001
+   "created": 1700000000001,
+   "sellBy": "kg",
+   "weights": [
+    50,
+    100,
+    250,
+    500,
+    1000
+   ]
   },
   {
    "id": "moringa-green",
    "name": "مورينجا خضراء",
    "cat": "fresh",
-   "desc": "أوراق مورينجا خضراء. السعر للكيلو، وتتوفر بأوزان 100 و200 و500 جرام و1 كيلو.",
+   "desc": "أوراق مورينجا خضراء.",
    "images": [
     "assets/images/products/moringa-green.jpg"
    ],
@@ -72,13 +88,20 @@ window.SEED_DATA={
    "qty": "",
    "available": true,
    "featured": false,
-   "created": 1700000000002
+   "created": 1700000000002,
+   "sellBy": "kg",
+   "weights": [
+    100,
+    200,
+    500,
+    1000
+   ]
   },
   {
    "id": "moringa-dry",
    "name": "مورينجا مجففة",
    "cat": "dried",
-   "desc": "أوراق مورينجا مجففة. السعر للكيلو، وتتوفر بأوزان 50 و100 و250 و500 جرام و1 كيلو.",
+   "desc": "أوراق مورينجا مجففة.",
    "images": [
     "assets/images/products/moringa-dry.jpg"
    ],
@@ -88,7 +111,15 @@ window.SEED_DATA={
    "qty": "",
    "available": true,
    "featured": false,
-   "created": 1700000000003
+   "created": 1700000000003,
+   "sellBy": "kg",
+   "weights": [
+    50,
+    100,
+    250,
+    500,
+    1000
+   ]
   },
   {
    "id": "lemon",
@@ -104,7 +135,9 @@ window.SEED_DATA={
    "qty": "",
    "available": true,
    "featured": false,
-   "created": 1700000000004
+   "created": 1700000000004,
+   "sellBy": "unit",
+   "weights": []
   },
   {
    "id": "berry",
@@ -120,7 +153,9 @@ window.SEED_DATA={
    "qty": "",
    "available": true,
    "featured": false,
-   "created": 1700000000005
+   "created": 1700000000005,
+   "sellBy": "unit",
+   "weights": []
   }
  ],
  "faq": [
