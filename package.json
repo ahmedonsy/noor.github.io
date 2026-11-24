@@ -1,0 +1,14 @@
+{
+  "name": "jannat-al-rahman-storefront",
+  "private": true,
+  "scripts": {
+    "build:admin": "esbuild src/admin.jsx --bundle --minify --outfile=js/admin.bundle.js --platform=browser --target=es2018"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
