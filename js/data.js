@@ -1,0 +1,136 @@
+window.SEED_DATA={
+ "settings": {
+  "name": "جنة الرحمن",
+  "heroTitle": "جنة الرحمن... جمال الطبيعة في كل تفاصيل حياتك",
+  "heroText": "مجموعة مختارة من الأعشاب الطبيعية والنباتات والمنتجات الطازجة والمجففة.",
+  "about": "جنة الرحمن مشتل ومتجر للأعشاب والنباتات والمنتجات الطبيعية الطازجة والمجففة.",
+  "whatsapp": "201010651521",
+  "phone": "",
+  "address": "",
+  "hours": "",
+  "facebook": "",
+  "instagram": ""
+ },
+ "categories": [
+  {
+   "id": "fresh",
+   "name": "طازج"
+  },
+  {
+   "id": "dried",
+   "name": "مجفف"
+  },
+  {
+   "id": "frozen",
+   "name": "مجمد وفواكه"
+  }
+ ],
+ "products": [
+  {
+   "id": "basil-fresh",
+   "name": "ريحان إيطالي فريش",
+   "cat": "fresh",
+   "desc": "ريحان إيطالي طازج بأوراق عطرية. السعر للكيلو، ويتوفر بأوزان 100 و200 و500 جرام و1 كيلو.",
+   "images": [
+    "assets/images/products/basil-fresh.jpg"
+   ],
+   "price": 225,
+   "oldPrice": 250,
+   "unit": "للكيلو",
+   "qty": "",
+   "available": true,
+   "featured": true,
+   "created": 1700000000000
+  },
+  {
+   "id": "basil-dry",
+   "name": "ريحان مجفف",
+   "cat": "dried",
+   "desc": "ريحان مجفف. السعر للكيلو، ويتوفر بأوزان 50 و100 و250 و500 جرام و1 كيلو.",
+   "images": [
+    "assets/images/products/basil-dry.jpg"
+   ],
+   "price": 700,
+   "oldPrice": "",
+   "unit": "للكيلو",
+   "qty": "",
+   "available": true,
+   "featured": true,
+   "created": 1700000000001
+  },
+  {
+   "id": "moringa-green",
+   "name": "مورينجا خضراء",
+   "cat": "fresh",
+   "desc": "أوراق مورينجا خضراء. السعر للكيلو، وتتوفر بأوزان 100 و200 و500 جرام و1 كيلو.",
+   "images": [
+    "assets/images/products/moringa-green.jpg"
+   ],
+   "price": 150,
+   "oldPrice": "",
+   "unit": "للكيلو",
+   "qty": "",
+   "available": true,
+   "featured": false,
+   "created": 1700000000002
+  },
+  {
+   "id": "moringa-dry",
+   "name": "مورينجا مجففة",
+   "cat": "dried",
+   "desc": "أوراق مورينجا مجففة. السعر للكيلو، وتتوفر بأوزان 50 و100 و250 و500 جرام و1 كيلو.",
+   "images": [
+    "assets/images/products/moringa-dry.jpg"
+   ],
+   "price": 500,
+   "oldPrice": "",
+   "unit": "للكيلو",
+   "qty": "",
+   "available": true,
+   "featured": false,
+   "created": 1700000000003
+  },
+  {
+   "id": "lemon",
+   "name": "ليمون معصور خام مجمد",
+   "cat": "frozen",
+   "desc": "عصير ليمون خام مجمد، يُباع بالعلبة.",
+   "images": [
+    "assets/images/products/lemon.jpg"
+   ],
+   "price": 30,
+   "oldPrice": "",
+   "unit": "للعلبة",
+   "qty": "",
+   "available": true,
+   "featured": false,
+   "created": 1700000000004
+  },
+  {
+   "id": "berry",
+   "name": "توت عُماني",
+   "cat": "frozen",
+   "desc": "يُباع بالعلبة، ووزن العلبة حوالي 500 جرام (تقريبي وغير ثابت).",
+   "images": [
+    "assets/images/products/berry.jpg"
+   ],
+   "price": 80,
+   "oldPrice": "",
+   "unit": "للعلبة",
+   "qty": "",
+   "available": true,
+   "featured": false,
+   "created": 1700000000005
+  }
+ ],
+ "faq": [
+  {
+   "q": "كيف أطلب؟",
+   "a": "اضغط على المنتج ثم زر الطلب عبر واتساب، وسنتواصل معك لتأكيد التفاصيل."
+  },
+  {
+   "q": "هل الأسعار ثابتة؟",
+   "a": "الأسعار المعروضة بالجنيه المصري وقد تتغير، ويؤكد المشتل السعر عند الطلب."
+  }
+ ]
+};
