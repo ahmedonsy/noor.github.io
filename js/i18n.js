@@ -1,0 +1,58 @@
+window.STORE_COPY={
+ ar:{
+  brand:"جنة الرحمن",
+  title:"جنة الرحمن | أعشاب ونباتات طبيعية",
+  description:"تسوّق أعشابًا ونباتات طبيعية طازجة ومجففة من جنة الرحمن. اختر منتجاتك وأكمل طلبك بسهولة عبر واتساب.",
+  settings:{heroTitle:"جنة الرحمن... جمال الطبيعة في كل تفاصيل حياتك",heroText:"مجموعة مختارة من الأعشاب الطبيعية والنباتات والمنتجات الطازجة والمجففة.",about:"جنة الرحمن مشتل ومتجر للأعشاب والنباتات والمنتجات الطبيعية الطازجة والمجففة."},
+  themes:{garden:"أخضر المشتل",sunshine:"شمسي ذهبي",ocean:"أزرق هادئ"},
+  ui:{
+   homeLabel:"جنة الرحمن - الصفحة الرئيسية",navLabel:"التنقل الرئيسي",products:"المنتجات",offers:"العروض",aboutNav:"عن المشتل",contact:"تواصل معنا",shopNow:"تسوّق الآن",arrow:"←",
+   heroEyebrow:"من خيرات الطبيعة إلى بيتك",discover:"اكتشف المنتجات",askWhatsapp:"اسألنا عبر واتساب",trustNatural:"منتجات طبيعية",trustNaturalSub:"اختيارات من خيرات الطبيعة",trustEasy:"طلب سهل",trustEasySub:"تأكيد الطلب عبر واتساب",visualTitle:"طبيعة أقرب إليك",visualSub:"منتجات مختارة بعناية",heroImageAlt:"زهرة عباد الشمس والنحل في حقل طبيعي",
+   productsEyebrow:"تسوّق حسب احتياجك",productsTitle:"منتجاتنا الطبيعية",productsSub:"تصفّح المنتجات، اختر ما يناسبك، وأكمل طلبك بخطوات بسيطة.",searchLabel:"ابحث عن منتج",searchPlaceholder:"ابحث عن منتج...",clearSearch:"مسح البحث",categories:"التصنيفات",all:"الكل",noProducts:"لم نعثر على منتجات مطابقة",trySearch:"جرّب كلمة بحث أخرى أو اعرض كل المنتجات.",showAll:"عرض كل المنتجات",resultCount:"عدد النتائج: {count}",
+   limited:"لفترة محدودة",offersTitle:"عروض تستحق التجربة",specialOffer:"عرض خاص",aboutEyebrow:"حكاية جنة الرحمن",aboutTitle:"الطبيعة بكل تفاصيلها",aboutLink:"تعرّف على منتجاتنا",contactEyebrow:"نحن هنا لمساعدتك",contactTitle:"تواصل معنا",contactText:"لديك سؤال عن منتج أو طلب؟ يسعدنا أن نساعدك.",footerNote:"اختيارات طبيعية، بعناية ومحبة",footerProducts:"المنتجات",footerContact:"تواصل معنا",footerAdmin:"لوحة الإدارة",
+   languageLabel:"تغيير اللغة",switchLanguage:"Switch to English",themeLabel:"ألوان الموقع",themeGarden:"أخضر المشتل",themeSunshine:"شمسي ذهبي",themeOcean:"أزرق هادئ",
+   cartOpen:"فتح سلة المشتريات",cartLabel:"السلة",cartIntro:"طلبك في مكان واحد",cartTitle:"سلة المشتريات",cartClose:"إغلاق السلة",checkoutTitle:"بيانات إتمام الطلب",name:"الاسم",fullName:"الاسم بالكامل",phone:"رقم الهاتف",phonePlaceholder:"01XXXXXXXXX",address:"العنوان بالتفصيل",addressPlaceholder:"المدينة، المنطقة، الشارع",notes:"ملاحظات إضافية",optional:"اختياري",notesPlaceholder:"أي تفاصيل تساعدنا في تجهيز طلبك",orderButton:"أكمل الطلب عبر واتساب",clearCart:"تفريغ السلة",
+   selectWeight:"اختر الوزن",grams:"جرام",kilo:"كيلو",perKilo:"للكيلو",perContainer:"للعلبة",offer:"عرض",featured:"مميز",outOfStock:"نفذت الكمية",addToCart:"أضف للسلة",details:"التفاصيل",showDetails:"عرض التفاصيل",close:"إغلاق",naturalProduct:"منتج طبيعي",benefitLabel:"ميزة",benefitsTitle:"لماذا قد يعجبك؟",
+   status:"الحالة",available:"متوفر",cartEmptyTitle:"سلتك فارغة حاليًا",cartEmptyText:"اكتشف منتجاتنا وأضف ما يناسبك إلى السلة.",browseProducts:"تصفّح المنتجات",weight:"الوزن",unit:"الوحدة",quantity:"الكمية",unitPrice:"سعر الوحدة",lineTotal:"الإجمالي",delete:"حذف",increase:"زيادة الكمية",decrease:"إنقاص الكمية",subtotal:"المجموع الفرعي",delivery:"التوصيل",confirmDelivery:"يُحدد عند التأكيد",total:"الإجمالي",withoutDelivery:"بدون التوصيل",
+   errorCart:"السلة فارغة.",errorName:"اكتب الاسم.",errorPhone:"رقم الهاتف غير صحيح (مثال: 01012345678).",errorAddress:"اكتب العنوان بالتفصيل.",errorWhatsapp:"رقم واتساب المتجر غير مضبوط.",orderReady:"تم تجهيز الطلب. اضغط إرسال داخل واتساب لإتمامه. لو لم يفتح اضغط",here:"هنا",
+   contactCall:"اتصل بنا",contactAddress:"العنوان",contactHours:"أوقات العمل",facebook:"فيسبوك",instagram:"إنستجرام",whatsappInquiry:"مرحباً، أريد الاستفسار عن منتجاتكم.",orderIntro:"مرحباً {name}، أريد طلب المنتجات التالية:",customerDetails:"بيانات العميل:",customerName:"الاسم:",customerPhone:"رقم الهاتف:",customerAddress:"العنوان:",customerNotes:"ملاحظات:",orderDetails:"تفاصيل الطلب:",weightPrefix:"الوزن:",unitPrefix:"الوحدة:",subtotalPrefix:"المجموع الفرعي:",deliveryPrefix:"التوصيل:",finalTotal:"الإجمالي النهائي:",thanks:"شكراً لكم."
+  },
+  categories:{fresh:"طازج",dried:"مجفف",frozen:"مجمد وفواكه"},
+  products:{
+   "basil-fresh":{name:"ريحان إيطالي فريش",desc:"ريحان إيطالي طازج بأوراق عطرية.",benefits:["أوراق عطرية تضيف نكهة منعشة للسلطات والصلصات.","أضفه للأطباق الطازجة أو في نهاية الطهي للحفاظ على نكهته."]},
+   "basil-dry":{name:"ريحان مجفف",desc:"ريحان مجفف.",benefits:["نكهة عشبية مركزة وسهل الإضافة للوصفات اليومية.","يناسب تتبيل الصلصات والشوربات والخضروات."]},
+   "moringa-green":{name:"مورينجا خضراء",desc:"أوراق مورينجا خضراء.",benefits:["أوراق طازجة للتنويع في الوجبات والوصفات.","تُغسل وتُضاف حسب الرغبة للأطباق أو المشروبات."]},
+   "moringa-dry":{name:"مورينجا مجففة",desc:"أوراق مورينجا مجففة.",benefits:["أوراق مجففة سهلة الحفظ والاستخدام.","يمكن إضافتها بكمية مناسبة إلى المشروبات والوصفات."]},
+   "lemon":{name:"ليمون معصور خام مجمد",desc:"عصير ليمون خام مجمد، يُباع بالعلبة.",benefits:["عصير ليمون عملي للمشروبات والتتبيلات.","جاهز للاستخدام بعد الإذابة حسب الكمية المطلوبة."]},
+   "berry":{name:"توت عُماني",desc:"يُباع بالعلبة، ووزن العلبة حوالي 500 جرام (تقريبي وغير ثابت).",benefits:["توت مجمد بطعم فاكهي لإضافته للحلويات والمشروبات.","اختيار سهل لتحضير وصفات التوت في أي وقت."]}
+  }
+ },
+ en:{
+  brand:"Jannat Al Rahman",
+  title:"Jannat Al Rahman | Natural Herbs & Plants",
+  description:"Shop fresh and dried herbs, plants, and natural products from Jannat Al Rahman. Choose your products and order easily on WhatsApp.",
+  settings:{heroTitle:"Nature's beauty in every detail of your life",heroText:"A carefully selected collection of natural herbs, plants, and fresh and dried products.",about:"Jannat Al Rahman is a nursery and store for natural herbs, plants, and fresh and dried products."},
+  themes:{garden:"Garden Green",sunshine:"Sunlit Gold",ocean:"Calm Blue"},
+  ui:{
+   homeLabel:"Jannat Al Rahman - Home",navLabel:"Main navigation",products:"Products",offers:"Offers",aboutNav:"About us",contact:"Contact",shopNow:"Shop now",arrow:"→",
+   heroEyebrow:"Nature's goodness, delivered to your home",discover:"Explore products",askWhatsapp:"Ask us on WhatsApp",trustNatural:"Natural products",trustNaturalSub:"Selected from nature's best",trustEasy:"Easy ordering",trustEasySub:"Confirm your order on WhatsApp",visualTitle:"Nature, closer to you",visualSub:"Thoughtfully selected products",heroImageAlt:"Sunflower and bees in a field",
+   productsEyebrow:"Shop by what you need",productsTitle:"Our natural products",productsSub:"Browse the products, choose what suits you, and place your order in a few simple steps.",searchLabel:"Search products",searchPlaceholder:"Search products...",clearSearch:"Clear search",categories:"Categories",all:"All",noProducts:"No matching products found",trySearch:"Try another search or view all products.",showAll:"Show all products",resultCount:"Results: {count}",
+   limited:"Limited time",offersTitle:"Offers worth trying",specialOffer:"Special offer",aboutEyebrow:"The Jannat Al Rahman story",aboutTitle:"Nature in every detail",aboutLink:"Explore our products",contactEyebrow:"We're here to help",contactTitle:"Contact us",contactText:"Have a question about a product or an order? We're happy to help.",footerNote:"Natural choices, selected with care",footerProducts:"Products",footerContact:"Contact",footerAdmin:"Admin panel",
+   languageLabel:"Change language",switchLanguage:"التبديل إلى العربية",themeLabel:"Site theme",themeGarden:"Garden Green",themeSunshine:"Sunlit Gold",themeOcean:"Calm Blue",
+   cartOpen:"Open shopping cart",cartLabel:"Cart",cartIntro:"Your order in one place",cartTitle:"Shopping cart",cartClose:"Close cart",checkoutTitle:"Checkout details",name:"Name",fullName:"Full name",phone:"Phone number",phonePlaceholder:"e.g. 01012345678",address:"Delivery address",addressPlaceholder:"City, area, street",notes:"Additional notes",optional:"Optional",notesPlaceholder:"Anything that helps us prepare your order",orderButton:"Continue to WhatsApp",clearCart:"Empty cart",
+   selectWeight:"Choose weight",grams:"g",kilo:"kg",perKilo:"per kg",perContainer:"per container",offer:"Offer",featured:"Featured",outOfStock:"Out of stock",addToCart:"Add to cart",details:"Details",showDetails:"View details",close:"Close",naturalProduct:"Natural product",benefitLabel:"Why choose it",benefitsTitle:"Why you may like it",
+   status:"Status",available:"Available",cartEmptyTitle:"Your cart is empty",cartEmptyText:"Explore our products and add what you like to your cart.",browseProducts:"Browse products",weight:"Weight",unit:"Unit",quantity:"Quantity",unitPrice:"Unit price",lineTotal:"Total",delete:"Remove",increase:"Increase quantity",decrease:"Decrease quantity",subtotal:"Subtotal",delivery:"Delivery",confirmDelivery:"Confirmed when ordering",total:"Total",withoutDelivery:"excluding delivery",
+   errorCart:"Your cart is empty.",errorName:"Please enter your name.",errorPhone:"Invalid phone number (e.g. 01012345678).",errorAddress:"Please enter your full address.",errorWhatsapp:"The store's WhatsApp number is not configured.",orderReady:"Your order is ready. Tap Send in WhatsApp to complete it. If it doesn't open, click",here:"here",
+   contactCall:"Call us",contactAddress:"Address",contactHours:"Opening hours",facebook:"Facebook",instagram:"Instagram",whatsappInquiry:"Hello, I have a question about your products.",orderIntro:"Hello {name}, I would like to order the following products:",customerDetails:"Customer details:",customerName:"Name:",customerPhone:"Phone:",customerAddress:"Address:",customerNotes:"Notes:",orderDetails:"Order details:",weightPrefix:"Weight:",unitPrefix:"Unit:",subtotalPrefix:"Subtotal:",deliveryPrefix:"Delivery:",finalTotal:"Final total:",thanks:"Thank you."
+  },
+  categories:{fresh:"Fresh",dried:"Dried",frozen:"Frozen & fruit"},
+  products:{
+   "basil-fresh":{name:"Fresh Italian Basil",desc:"Fresh Italian basil with aromatic leaves.",benefits:["Aromatic leaves add a fresh flavor to salads and sauces.","Enjoy it fresh or add it at the end of cooking to preserve its flavor."]},
+   "basil-dry":{name:"Dried Basil",desc:"Dried basil.",benefits:["A concentrated herbal flavor that's easy to add to everyday recipes.","Works well in sauces, soups, and vegetable dishes."]},
+   "moringa-green":{name:"Fresh Moringa Leaves",desc:"Fresh moringa leaves.",benefits:["Fresh leaves to add variety to meals and recipes.","Wash and add to dishes or drinks as desired."]},
+   "moringa-dry":{name:"Dried Moringa Leaves",desc:"Dried moringa leaves.",benefits:["Dried leaves that are easy to store and use.","Add a suitable amount to drinks and recipes as desired."]},
+   "lemon":{name:"Frozen Raw Lemon Juice",desc:"Raw frozen lemon juice, sold by the container.",benefits:["A convenient option for drinks and marinades.","Ready to use after thawing, in the amount you need."]},
+   "berry":{name:"Omani Mulberries",desc:"Sold by the container; each container weighs approximately 500 g (weight may vary).",benefits:["Frozen berries with a fruity flavor for desserts and drinks.","An easy way to prepare berry recipes whenever you like."]}
+  }
+ }
+};
