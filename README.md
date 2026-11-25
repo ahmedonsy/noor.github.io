@@ -8,7 +8,7 @@
 - `index.html` الموقع، `admin.html` لوحة التحكم
 - `css/` التصميم، `js/app.js` الموقع، `src/admin.jsx` لوحة React، `js/storage.js` طبقة البيانات
 - `js/data.js` البيانات الأصلية (المنتجات والإعدادات) — منفصلة عن الكود
-- `assets/icons/logo.svg` شعار المتجر المستخدم في الموقع ولوحة الإدارة وأيقونة التبويب
+- `assets/images/banners/MyLogo.png` شعار المتجر المستخدم في الموقع ولوحة الإدارة وأيقونة التبويب
 - `assets/images/products/` صور المنتجات، `backup/sample-backup.json` نسخة احتياطية تجريبية
 
 ## تطوير لوحة التحكم

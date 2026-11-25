@@ -69,7 +69,7 @@ body{background:#faf9f5;color:#24342a;font-family:Tahoma,"Segoe UI",Arial,sans-s
 .hd{background:#fff;color:var(--ink);box-shadow:0 2px 18px #152b1d0c}
 .bar{min-height:76px;gap:28px}
 .logo{display:flex;align-items:center;gap:9px;color:var(--forest);font-size:23px}
-.logo-mark{display:block;width:40px;height:40px;border-radius:50%;object-fit:contain}
+.logo-mark{display:block;width:48px;height:48px;border-radius:8px;object-fit:cover}
 nav{gap:26px;font-size:14px}
 nav a{position:relative;padding-block:8px;color:#58665c;transition:color .18s ease}
 nav a:hover{color:var(--forest)}
@@ -183,7 +183,7 @@ section .section-heading h2{margin:0;color:#1b3d2a;font-size:32px}
 .footer{padding:20px 0;background:#112f20;color:#d4dfd3}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
 .footer-brand{display:flex;align-items:center;gap:8px;color:#fff;font-family:"Traditional Arabic","Times New Roman",serif;font-size:18px}
-.footer-logo{width:30px;height:30px;border-radius:50%;object-fit:contain}
+.footer-logo{width:36px;height:36px;border-radius:6px;object-fit:cover}
 .footer-note{color:#aebdaf;font-size:11px}
 .footer-links{display:flex;gap:18px;font-size:11px}
 .footer-links a:hover{color:#e0c98e}
@@ -241,7 +241,7 @@ section .section-heading h2{margin:0;color:#1b3d2a;font-size:32px}
   .wrap{padding-inline:16px}
   .bar{min-height:unset;gap:7px;padding-block:9px}
   .logo{font-size:20px}
-  .logo-mark{width:34px;height:34px}
+  .logo-mark{width:40px;height:40px}
   nav{order:3;width:100%;margin:0;padding:1px 0 2px;gap:21px;font-size:12px}
   nav a{padding:4px 0}
   .header-cta{margin-inline-start:auto;padding:8px 10px;font-size:11px}
