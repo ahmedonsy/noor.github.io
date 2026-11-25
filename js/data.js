@@ -151,7 +151,7 @@ window.SEED_DATA={
    "oldPrice": "",
    "unit": "للعلبة",
    "qty": "",
-   "available": true,
+   "available": false,
    "featured": false,
    "created": 1700000000005,
    "sellBy": "unit",
