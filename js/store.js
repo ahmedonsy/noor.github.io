@@ -25,7 +25,6 @@ function init(){document.title=S.name+" | أعشاب ونباتات طبيعية
  var g=[];D.products.forEach(function(p){(p.images||[]).forEach(function(s){g.push('<img src="'+esc(s)+'" data-id="'+esc(p.id)+'" alt="'+esc(p.name)+'" loading="lazy">')})});
  $("#gallery").hidden=!g.length;$("#gg").innerHTML=g.join("");
  $("#about").hidden=!S.about;$("#ab").textContent=S.about||"";
- $("#faq").hidden=!(D.faq&&D.faq.length);$("#fq").innerHTML=(D.faq||[]).map(function(x){return"<details><summary>"+esc(x.q)+"</summary><p>"+esc(x.a)+"</p></details>"}).join("");
  var c=[];if(S.phone)c.push("الهاتف: "+esc(S.phone));if(S.address)c.push("العنوان: "+esc(S.address));if(S.hours)c.push("أوقات العمل: "+esc(S.hours));
  [["facebook","فيسبوك"],["instagram","إنستجرام"]].forEach(function(k){if(/^https?:\/\//.test(S[k[0]]||""))c.push('<a href="'+esc(S[k[0]])+'" target="_blank" rel="noopener noreferrer">'+k[1]+"</a>")});
  $("#cl").innerHTML=c.map(function(x){return"<p>"+x+"</p>"}).join("")||'<p class="note">تواصل معنا عبر واتساب.</p>';

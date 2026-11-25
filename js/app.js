@@ -67,7 +67,6 @@ $("#q").addEventListener("input",list);$("#cf").addEventListener("submit",order)
 document.title=S.name+" | أعشاب ونباتات طبيعية";$("#logo").textContent=S.name;$("#fn").textContent=S.name;$("#hh").textContent=S.heroTitle;$("#ht").textContent=S.heroText;
 var o=D.products.filter(offer);$("#offers").hidden=!o.length;$("#go").innerHTML=o.map(card).join("");
 $("#about").hidden=!S.about;$("#ab").textContent=S.about||"";
-$("#faq").hidden=!(D.faq&&D.faq.length);$("#fq").innerHTML=(D.faq||[]).map(function(x){return"<details><summary>"+esc(x.q)+"</summary><p>"+esc(x.a)+"</p></details>"}).join("");
 var ct=[];if(S.phone)ct.push("الهاتف: "+esc(S.phone));if(S.address)ct.push("العنوان: "+esc(S.address));if(S.hours)ct.push("أوقات العمل: "+esc(S.hours));
 [["facebook","فيسبوك"],["instagram","إنستجرام"]].forEach(function(k){if(/^https?:\/\//.test(S[k[0]]||""))ct.push('<a href="'+esc(S[k[0]])+'" target="_blank" rel="noopener noreferrer">'+k[1]+"</a>")});
 var w=wa("مرحباً، أريد الاستفسار عن منتجاتكم.");if(w)ct.push('<a class="btn wa" href="'+w+'" target="_blank" rel="noopener noreferrer">راسلنا عبر واتساب</a>');

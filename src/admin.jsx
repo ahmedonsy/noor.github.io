@@ -7,7 +7,6 @@ const TABS = [
   ["products", "المنتجات", "▤"],
   ["cats", "التصنيفات", "◈"],
   ["set", "الرئيسية والتواصل", "⌂"],
-  ["faq", "الأسئلة الشائعة", "؟"],
   ["bak", "النسخ الاحتياطي", "↥"],
 ];
 const SETTINGS_FIELDS = [
@@ -433,23 +432,6 @@ function Settings({ data, onChange }) {
   </section>;
 }
 
-function Faq({ data, onChange }) {
-  const [faq, setFaq] = useState(data.faq || []);
-  function save() {
-    onChange({ ...data, faq: faq.map((item) => ({ q: item.q.trim(), a: item.a.trim() })).filter((item) => item.q) }, "تم حفظ الأسئلة");
-  }
-  return <section className="content-card">
-    <div className="section-heading"><div><p className="eyebrow">مساعدة زوار المتجر</p><h2>الأسئلة الشائعة</h2></div><button className="button button-outline" onClick={() => setFaq([...faq, { q: "سؤال جديد", a: "" }])} type="button">＋ إضافة سؤال</button></div>
-    {!faq.length && <div className="empty-state compact"><span>؟</span><h3>لا توجد أسئلة شائعة</h3><p>أضف إجابات تساعد زوار متجرك.</p></div>}
-    <div className="faq-list">{faq.map((item, index) => <div className="faq-card" key={index}>
-      <div className="faq-card-title"><span>سؤال {index + 1}</span><button aria-label={`حذف السؤال ${index + 1}`} className="icon-button danger" onClick={() => setFaq(faq.filter((_, itemIndex) => itemIndex !== index))} type="button">حذف السؤال</button></div>
-      <label className="field">السؤال<input onChange={(event) => setFaq(faq.map((entry, itemIndex) => itemIndex === index ? { ...entry, q: event.target.value } : entry))} value={item.q} /></label>
-      <label className="field">الإجابة<textarea onChange={(event) => setFaq(faq.map((entry, itemIndex) => itemIndex === index ? { ...entry, a: event.target.value } : entry))} rows="2" value={item.a} /></label>
-    </div>)}</div>
-    <div className="form-actions"><button className="btn" onClick={save} type="button">حفظ الأسئلة</button></div>
-  </section>;
-}
-
 function Backup({ data, onChange, onReset }) {
   const importInput = useRef(null);
   const [error, setError] = useState("");
@@ -540,7 +522,6 @@ function App() {
     }} />,
     cats: <Categories data={data} onChange={persist} />,
     set: <Settings data={data} onChange={persist} />,
-    faq: <Faq data={data} onChange={persist} />,
     bak: <Backup data={data} onChange={persist} onReset={() => {
       window.DB.reset();
       setData(window.DB.get());

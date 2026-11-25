@@ -103,10 +103,6 @@ body.adm{min-height:100vh;background:#f4f6f1;color:#203128}
 .add-category{display:flex;gap:9px;margin-top:16px}
 .add-category input{flex:1}
 .settings-grid{max-width:900px}
-.faq-list{display:grid;gap:12px}
-.faq-card{padding:16px;border:1px solid #edf0ea;border-radius:11px;background:#fcfdfb}
-.faq-card-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;color:#789078;font-size:12px;font-weight:700}
-.faq-card .field+.field{margin-top:12px}
 .backup-mark{display:grid;place-items:center;width:45px;height:45px;border-radius:13px;background:#edf3eb;color:#315d3d;font-size:22px}
 .notice-card{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:12px 14px;border:1px solid #e8dfc7;border-radius:10px;background:#fcf9f0;color:#6b5b36}
 .notice-card span{font-size:18px}
