@@ -103,7 +103,7 @@ window.SEED_DATA={
    "cat": "dried",
    "desc": "أوراق مورينجا مجففة.",
    "images": [
-    "assets/images/products/moringa-dry.jpg"
+    "assets/images/products/moringa-dry.png?v=25112026-4"
    ],
    "price": 500,
    "oldPrice": "",
@@ -145,7 +145,7 @@ window.SEED_DATA={
    "cat": "frozen",
    "desc": "يُباع بالعلبة، ووزن العلبة حوالي 500 جرام (تقريبي وغير ثابت).",
    "images": [
-    "assets/images/products/berry.jpg"
+    "assets/images/products/berry.jpg?v=25112026-4"
    ],
    "price": 80,
    "oldPrice": "",
