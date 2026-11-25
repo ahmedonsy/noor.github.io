@@ -113,7 +113,7 @@ function Login({ onLogin }) {
     <main className="login-shell">
       <a className="login-brand" href="index.html">جنة الرحمن</a>
       <section className="login-card">
-        <div className="login-mark" aria-hidden="true">✿</div>
+        <div className="login-mark" aria-hidden="true"><img src="assets/icons/logo.svg" alt="" /></div>
         <p className="eyebrow">إدارة المتجر</p>
         <h1>مرحبًا بعودتك</h1>
         <p className="login-copy">
@@ -531,7 +531,7 @@ function App() {
 
   return <div className="admin-shell">
     <aside className="sidebar">
-      <a className="brand-lockup" href="index.html"><span className="brand-icon">✿</span><span><b>جنة الرحمن</b><small>إدارة المتجر</small></span></a>
+      <a className="brand-lockup" href="index.html"><img className="brand-icon" src="assets/icons/logo.svg" alt="" /><span><b>جنة الرحمن</b><small>إدارة المتجر</small></span></a>
       <p className="nav-caption">القائمة الرئيسية</p>
       <nav aria-label="أقسام لوحة التحكم" className="admin-nav">
         {TABS.map(([id, label, icon]) => <button aria-current={tab === id ? "page" : undefined} className={tab === id ? "active" : ""} key={id} onClick={() => setTab(id)} type="button"><span className="nav-icon">{icon}</span>{label}{tab === id && <span className="nav-arrow" aria-hidden="true">‹</span>}</button>)}
