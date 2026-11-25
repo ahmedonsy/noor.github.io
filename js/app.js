@@ -13,23 +13,23 @@ function img(p){return(p.images&&p.images[0])||"assets/icons/leaf.svg"}
 function wa(t){var n=String(S.whatsapp||"").replace(/\D/g,"");return n?"https://wa.me/"+n+(t?"?text="+encodeURIComponent(t):""):""}
 function delivery(){return S.delivery===""||S.delivery==null||isNaN(Number(S.delivery))?null:Math.round(Number(S.delivery)*100)}
 try{cart=JSON.parse(localStorage.getItem(CK))||[]}catch(e){cart=[]}
-cart=cart.filter(function(c){var p=find(c.id);return p&&c.q>0&&(isKg(p)?p.weights.indexOf(c.g)>-1:c.g===0)});
+cart=cart.filter(function(c){var p=find(c.id);return p&&p.available!==false&&c.q>0&&(isKg(p)?p.weights.indexOf(c.g)>-1:c.g===0)});
 function saveCart(){try{localStorage.setItem(CK,JSON.stringify(cart))}catch(e){}}
 function wsel(p){return'<select class="w" aria-label="اختر الوزن"><option value="">اختر الوزن</option>'+p.weights.map(function(g){return'<option value="'+g+'">'+wl(g)+" – "+egp(up(p,g))+"</option>"}).join("")+"</select>"}
 function ptxt(p){return'<div class="price">'+egp(Number(p.price)*100)+' <small>'+(isKg(p)?"للكيلو":esc(p.unit))+"</small>"+(offer(p)?' <s>'+egp(Number(p.oldPrice)*100)+"</s>":"")+"</div>"}
 function addBtn(p){var o=p.available===false;return'<button class="btn" data-add="'+esc(p.id)+'"'+(o?" disabled":"")+">"+(o?"نفذت الكمية":"أضف للسلة")+"</button>"}
-function card(p){var tag=p.available===false?'<span class="tag off">نفذت الكمية</span>':offer(p)?'<span class="tag">عرض</span>':p.featured?'<span class="tag">مميز</span>':"";
- return'<article class="card"><button class="ph" data-id="'+esc(p.id)+'" aria-label="تفاصيل '+esc(p.name)+'"><img src="'+esc(img(p))+'" width="400" height="400" alt="'+esc(p.name)+'" loading="lazy" decoding="async">'+tag+'</button><div class="cb"><h3>'+esc(p.name)+"</h3>"+ptxt(p)+(isKg(p)?wsel(p):"")+'<div class="row2">'+addBtn(p)+'<button class="btn lt" data-id="'+esc(p.id)+'">تفاصيل</button></div></div></article>'}
+function card(p){var tag=p.available===false?'<span class="tag off">نفذت الكمية</span>':offer(p)?'<span class="tag">عرض</span>':p.featured?'<span class="tag">مميز</span>':"",c=D.categories.filter(function(x){return x.id===p.cat})[0];
+ return'<article class="card"><button class="ph" data-id="'+esc(p.id)+'" aria-label="تفاصيل '+esc(p.name)+'"><img src="'+esc(img(p))+'" width="400" height="400" alt="'+esc(p.name)+'" loading="lazy" decoding="async">'+tag+'<span class="image-open" aria-hidden="true">عرض التفاصيل</span></button><div class="cb"><span class="product-category">'+esc(c?c.name:"منتج طبيعي")+'</span><h3>'+esc(p.name)+'</h3><p class="product-desc">'+esc(p.desc)+'</p>'+ptxt(p)+(isKg(p)?wsel(p):"")+'<div class="row2">'+addBtn(p)+'<button class="btn lt" data-id="'+esc(p.id)+'">التفاصيل</button></div></div></article>'}
 function list(){var q=nz($("#q").value.trim());
  var l=D.products.filter(function(p){return(!cat||p.cat===cat)&&(!q||nz(p.name+" "+p.desc).indexOf(q)>-1)});
- $("#gp").innerHTML=l.map(card).join("");$("#empty").hidden=l.length>0}
+ $("#gp").innerHTML=l.map(card).join("");$("#empty").hidden=l.length>0;$("#result-count").textContent="عدد النتائج: "+l.length;$("#clear-search").hidden=!$("#q").value}
 function chips(){$("#chips").innerHTML=[{id:"",name:"الكل"}].concat(D.categories).map(function(c){return'<button class="chip" data-cat="'+esc(c.id)+'" aria-pressed="'+(c.id===cat)+'">'+esc(c.name)+"</button>"}).join("")}
 function show(id){var p=find(id);if(!p)return;var im=p.images&&p.images.length?p.images:["assets/icons/leaf.svg"],c=D.categories.filter(function(x){return x.id===p.cat})[0];
  $("#md").innerHTML='<button class="x" data-close aria-label="إغلاق">✕</button><img class="main" id="mi" src="'+esc(im[0])+'" width="560" height="560" alt="'+esc(p.name)+'" decoding="async">'+(im.length>1?'<div class="th">'+im.map(function(s){return'<img data-src="'+esc(s)+'" src="'+esc(s)+'" width="56" height="56" alt="" loading="lazy" decoding="async">'}).join("")+"</div>":"")+"<h2>"+esc(p.name)+"</h2>"+(c?'<p class="note">'+esc(c.name)+"</p>":"")+ptxt(p)+"<p>"+esc(p.desc)+"</p><p>الحالة: <b>"+(p.available===false?"نفذت الكمية":"متوفر")+"</b></p>"+(isKg(p)?wsel(p):"")+'<div class="row2">'+addBtn(p)+"</div>";
  $("#ov").hidden=false}
 function lines(){var sub=0,h="";
- if(!cart.length){$("#cl").innerHTML='<p>سلتك فارغة.</p>';$("#ck").hidden=true;return}
- cart.forEach(function(c,i){var p=find(c.id),u=up(p,c.g);sub+=u*c.q;h+='<div class="ln"><b>'+esc(p.name)+"</b><span class=\"note\">"+(c.g?"الوزن: "+wl(c.g):"")+" · سعر الوحدة: "+egp(u)+'</span><div class="r"><span class="st"><button data-dec="'+i+'" aria-label="إنقاص">−</button><span>'+c.q+'</span><button data-inc="'+i+'" aria-label="زيادة">+</button></span><b>'+egp(u*c.q)+'</b><button class="sm" data-rm="'+i+'">حذف</button></div></div>'});
+ if(!cart.length){$("#cl").innerHTML='<div class="cart-empty"><span class="empty-icon" aria-hidden="true">🛍</span><h3>سلتك فارغة حاليًا</h3><p>اكتشف منتجاتنا وأضف ما يناسبك إلى السلة.</p><a class="btn" href="#products" data-close-cart>تصفّح المنتجات <span aria-hidden="true">←</span></a></div>';$("#ck").hidden=true;return}
+ cart.forEach(function(c,i){var p=find(c.id),u=up(p,c.g);sub+=u*c.q;h+='<div class="ln"><div class="cart-product"><img src="'+esc(img(p))+'" alt=""><div><b>'+esc(p.name)+'</b><span class="note">'+(c.g?"الوزن: "+wl(c.g):esc(p.unit||"للقطعة"))+'</span></div></div><div class="r"><span class="st"><button data-dec="'+i+'" aria-label="إنقاص الكمية">−</button><span>'+c.q+'</span><button data-inc="'+i+'" aria-label="زيادة الكمية">+</button></span><b>'+egp(u*c.q)+'</b><button class="sm" data-rm="'+i+'">حذف</button></div></div>'});
  var dv=delivery();$("#cl").innerHTML=h;$("#ck").hidden=false;
  $("#tt").innerHTML="<div><span>المجموع الفرعي</span><span>"+egp(sub)+"</span></div><div><span>التوصيل</span><span>"+(dv==null?"يُحدد عند التأكيد":egp(dv))+'</span></div><div class="t"><span>الإجمالي'+(dv==null?" (بدون التوصيل)":"")+"</span><span>"+egp(sub+(dv||0))+"</span></div>";
  return sub}
@@ -52,6 +52,7 @@ function order(e){e.preventDefault();var er=$("#er"),n=$("#cn").value.trim(),ph=
 document.addEventListener("click",function(e){var t=e.target,b;
  if((b=t.closest("[data-add]"))){var p=find(b.dataset.add),box=b.closest(".card,#md"),s=box.querySelector("select.w"),g=0;
   if(isKg(p)){g=s?+s.value:0;if(!g){s.classList.add("bad");s.focus();return}s.classList.remove("bad")}add(p,g);return}
+ if(t.closest("[data-reset-search]")){cat="";$("#q").value="";$("#clear-search").hidden=true;chips();list();return}
  if((b=t.closest("[data-cat]"))){cat=b.dataset.cat;chips();list();return}
  if((b=t.closest("[data-id]"))){show(b.dataset.id);return}
  if(t.closest("[data-close]")||t.id==="ov"){$("#ov").hidden=true;return}
@@ -63,13 +64,14 @@ document.addEventListener("click",function(e){var t=e.target,b;
  if((b=t.closest("[data-rm]"))){cart.splice(+b.dataset.rm,1);upd();return}
  if(t.closest("[data-clear]")){cart=[];upd();return}});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"){$("#ov").hidden=true;if($("#cv").classList.contains("on"))closeCart()}});
-$("#q").addEventListener("input",list);$("#cf").addEventListener("submit",order);
+$("#q").addEventListener("input",list);$("#clear-search").addEventListener("click",function(){$("#q").value="";this.hidden=true;$("#q").focus();list()});$("#cf").addEventListener("submit",order);
 document.title=S.name+" | أعشاب ونباتات طبيعية";$("#logo").textContent=S.name;$("#fn").textContent=S.name;$("#hh").textContent=S.heroTitle;$("#ht").textContent=S.heroText;
+var hw=$("#hero-wa"),hwUrl=wa("مرحباً، أريد الاستفسار عن منتجاتكم.");if(hwUrl){hw.href=hwUrl}else{hw.hidden=true}
 var o=D.products.filter(offer);$("#offers").hidden=!o.length;$("#go").innerHTML=o.map(card).join("");
 $("#about").hidden=!S.about;$("#ab").textContent=S.about||"";
-var ct=[];if(S.phone)ct.push("الهاتف: "+esc(S.phone));if(S.address)ct.push("العنوان: "+esc(S.address));if(S.hours)ct.push("أوقات العمل: "+esc(S.hours));
-[["facebook","فيسبوك"],["instagram","إنستجرام"]].forEach(function(k){if(/^https?:\/\//.test(S[k[0]]||""))ct.push('<a href="'+esc(S[k[0]])+'" target="_blank" rel="noopener noreferrer">'+k[1]+"</a>")});
-var w=wa("مرحباً، أريد الاستفسار عن منتجاتكم.");if(w)ct.push('<a class="btn wa" href="'+w+'" target="_blank" rel="noopener noreferrer">راسلنا عبر واتساب</a>');
-$("#cl2").innerHTML=ct.map(function(x){return"<p>"+x+"</p>"}).join("");
+var ct=[];if(S.phone)ct.push('<a class="contact-detail" href="tel:'+esc(S.phone)+'"><span class="contact-icon" aria-hidden="true">☎</span><span><small>اتصل بنا</small><b>'+esc(S.phone)+'</b></span></a>');if(S.address)ct.push('<div class="contact-detail"><span class="contact-icon" aria-hidden="true">⌖</span><span><small>العنوان</small><b>'+esc(S.address)+'</b></span></div>');if(S.hours)ct.push('<div class="contact-detail"><span class="contact-icon" aria-hidden="true">◷</span><span><small>أوقات العمل</small><b>'+esc(S.hours)+'</b></span></div>');
+[["facebook","فيسبوك"],["instagram","إنستجرام"]].forEach(function(k){if(/^https?:\/\//.test(S[k[0]]||""))ct.push('<a class="social-link" href="'+esc(S[k[0]])+'" target="_blank" rel="noopener noreferrer">'+k[1]+' <span aria-hidden="true">↗</span></a>')});
+var w=wa("مرحباً، أريد الاستفسار عن منتجاتكم.");if(w)ct.push('<a class="btn wa contact-wa" href="'+w+'" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> راسلنا عبر واتساب <span aria-hidden="true">←</span></a>');
+$("#cl2").innerHTML=ct.join("");
 chips();list();badge();
 })();

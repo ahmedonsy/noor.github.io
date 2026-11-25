@@ -1,29 +1,160 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>جنة الرحمن | أعشاب ونباتات طبيعية</title><meta name="description" content="ريحان ومورينجا وليمون معصور وتوت عُماني، طازج ومجفف. اطلب عبر واتساب.">
-<link rel="icon" href="assets/icons/leaf.svg"><link rel="stylesheet" href="css/style.css"></head><body>
-<header class="hd"><div class="wrap bar"><a class="logo" id="logo" href="#top">المشتل</a>
-<nav><a href="#products">المنتجات</a><a href="#offers">العروض</a><a href="#about">عن المشتل</a><a href="#contact">تواصل</a></nav></div></header>
-<main id="top">
-<div class="hero"><div class="wrap"><h1 id="hh"></h1><p id="ht"></p><a class="btn gold" href="#products">تسوق الآن</a></div></div>
-<section id="products"><div class="wrap"><h2>المنتجات</h2>
-<input id="q" class="sq" type="search" placeholder="ابحث عن منتج…" aria-label="بحث فوري" autocomplete="off">
-<div class="chips" id="chips"></div>
-<div class="grid" id="gp"></div><p id="empty" class="note" hidden>لا توجد منتجات مطابقة.</p></div></section>
-<section id="offers" hidden><div class="wrap"><h2>العروض</h2><div class="grid" id="go"></div></div></section>
-<section id="about" hidden><div class="wrap"><h2>عن المشتل</h2><p id="ab"></p></div></section>
-<section id="contact"><div class="wrap ct"><h2>تواصل معنا</h2><div id="cl2"></div></div></section>
-</main>
-<footer><div class="wrap"><span id="fn"></span> · <a href="admin.html">لوحة الإدارة</a></div></footer>
-<button class="fab" id="fab" data-cart aria-label="فتح سلة المشتريات">🛒<span class="bdg" id="cnt">0</span></button>
-<div class="ov" id="ov" hidden><div class="modal" id="md" role="dialog" aria-modal="true"></div></div>
-<div class="cv" id="cv"><div class="bd" data-close-cart></div>
-<aside class="dr" role="dialog" aria-modal="true" aria-label="سلة المشتريات">
-<div class="dh"><h2>سلة المشتريات</h2><button class="x" data-close-cart aria-label="إغلاق السلة">✕</button></div>
-<div class="db"><div id="cl"></div>
-<div id="ck" hidden><div class="tots" id="tt"></div>
-<form id="cf" class="f" novalidate><label>الاسم<input id="cn" autocomplete="name"></label><label>رقم الهاتف<input id="cp" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX"></label><label>العنوان بالتفصيل<input id="ca" autocomplete="street-address"></label><label>ملاحظات إضافية (اختياري)<textarea id="co" rows="2"></textarea></label>
-<p class="err" id="er" role="alert"></p><button class="btn wa" id="sd" type="submit">إتمام الطلب عبر واتساب</button>
-<p class="note" id="nt"></p><button type="button" class="sm" data-clear>تفريغ السلة</button></form></div></div></aside></div>
-<script src="js/data.js"></script><script src="js/storage.js"></script><script src="js/app.js"></script>
-</body></html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#173f2a">
+  <title>جنة الرحمن | أعشاب ونباتات طبيعية</title>
+  <meta name="description" content="تسوّق أعشابًا ونباتات طبيعية طازجة ومجففة من جنة الرحمن. اختر منتجاتك وأكمل طلبك بسهولة عبر واتساب.">
+  <link rel="icon" href="assets/icons/leaf.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="hd">
+    <div class="wrap bar">
+      <a class="logo" href="#top" aria-label="جنة الرحمن - الصفحة الرئيسية">
+        <span class="logo-mark" aria-hidden="true">❋</span>
+        <span id="logo">المشتل</span>
+      </a>
+      <nav aria-label="التنقل الرئيسي">
+        <a href="#products">المنتجات</a>
+        <a href="#offers">العروض</a>
+        <a href="#about">عن المشتل</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+      <a class="header-cta" href="#products">تسوّق الآن <span aria-hidden="true">←</span></a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow hero-eyebrow"><i aria-hidden="true"></i> من خيرات الطبيعة إلى بيتك</span>
+          <h1 id="hh"></h1>
+          <p id="ht"></p>
+          <div class="hero-actions">
+            <a class="btn gold" href="#products">اكتشف المنتجات <span aria-hidden="true">←</span></a>
+            <a class="hero-contact" id="hero-wa" href="#contact" target="_blank" rel="noopener noreferrer">
+              <span class="wa-icon" aria-hidden="true">◉</span> اسألنا عبر واتساب
+            </a>
+          </div>
+          <div class="trust-row" aria-label="مميزات المتجر">
+            <div><span class="trust-icon" aria-hidden="true">✿</span><span><b>منتجات طبيعية</b><small>اختيارات من خيرات الطبيعة</small></span></div>
+            <div><span class="trust-icon" aria-hidden="true">✓</span><span><b>طلب سهل</b><small>تأكيد الطلب عبر واتساب</small></span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/images/products/basil-fresh.jpg" width="640" height="640" alt="أوراق ريحان طازجة من منتجات جنة الرحمن">
+          <div class="visual-card"><span class="visual-spark" aria-hidden="true">✦</span><span><b>طبيعة أقرب إليك</b><small>منتجات مختارة بعناية</small></span></div>
+          <span class="visual-orbit orbit-one" aria-hidden="true"></span>
+          <span class="visual-orbit orbit-two" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section" id="products">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">تسوّق حسب احتياجك</span>
+            <h2>منتجاتنا الطبيعية</h2>
+            <p>تصفّح المنتجات، اختر ما يناسبك، وأكمل طلبك بخطوات بسيطة.</p>
+          </div>
+          <span class="result-count" id="result-count" aria-live="polite"></span>
+        </div>
+        <div class="shop-tools">
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="q" class="sq" type="search" placeholder="ابحث عن منتج..." aria-label="ابحث عن منتج" autocomplete="off">
+            <button class="clear-search" id="clear-search" type="button" aria-label="مسح البحث" hidden>×</button>
+          </div>
+          <div class="filter-row">
+            <span class="filter-label">التصنيفات</span>
+            <div class="chips" id="chips" role="group" aria-label="تصفية حسب التصنيف"></div>
+          </div>
+        </div>
+        <div class="grid" id="gp" aria-live="polite"></div>
+        <div id="empty" class="empty-state" hidden>
+          <span class="empty-icon" aria-hidden="true">⌕</span>
+          <h3>لم نعثر على منتجات مطابقة</h3>
+          <p>جرّب كلمة بحث أخرى أو اعرض كل المنتجات.</p>
+          <button class="btn" type="button" data-reset-search>عرض كل المنتجات</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="offers-section" id="offers" hidden>
+      <div class="wrap">
+        <div class="section-heading">
+          <div><span class="eyebrow">لفترة محدودة</span><h2>عروض تستحق التجربة</h2></div>
+          <span class="offer-mark" aria-hidden="true">% عرض خاص</span>
+        </div>
+        <div class="grid" id="go"></div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about" hidden>
+      <div class="wrap">
+        <div class="about-card">
+          <span class="about-flower" aria-hidden="true">✿</span>
+          <div><span class="eyebrow">حكاية جنة الرحمن</span><h2>الطبيعة بكل تفاصيلها</h2><p id="ab"></p></div>
+          <a class="about-link" href="#products">تعرّف على منتجاتنا <span aria-hidden="true">←</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="wrap">
+        <div class="contact-card">
+          <div class="contact-copy">
+            <span class="eyebrow">نحن هنا لمساعدتك</span>
+            <h2>تواصل معنا</h2>
+            <p>لديك سؤال عن منتج أو طلب؟ يسعدنا أن نساعدك.</p>
+          </div>
+          <div class="contact-links" id="cl2"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="#top"><span aria-hidden="true">❋</span><b id="fn"></b></a>
+      <span class="footer-note">اختيارات طبيعية، بعناية ومحبة</span>
+      <div class="footer-links"><a href="#products">المنتجات</a><a href="#contact">تواصل معنا</a><a href="admin.html">لوحة الإدارة</a></div>
+    </div>
+  </footer>
+
+  <button class="fab" id="fab" data-cart aria-label="فتح سلة المشتريات">
+    <span class="cart-icon" aria-hidden="true">🛒</span><span>السلة</span><span class="bdg" id="cnt">0</span>
+  </button>
+  <div class="ov" id="ov" hidden><div class="modal" id="md" role="dialog" aria-modal="true"></div></div>
+  <div class="cv" id="cv">
+    <div class="bd" data-close-cart></div>
+    <aside class="dr" role="dialog" aria-modal="true" aria-label="سلة المشتريات">
+      <div class="dh"><div><span class="cart-eyebrow">طلبك في مكان واحد</span><h2>سلة المشتريات</h2></div><button class="x" data-close-cart aria-label="إغلاق السلة">✕</button></div>
+      <div class="db">
+        <div id="cl"></div>
+        <div id="ck" hidden>
+          <div class="tots" id="tt"></div>
+          <form id="cf" class="f" novalidate>
+            <h3 class="checkout-title">بيانات إتمام الطلب</h3>
+            <label>الاسم<input id="cn" autocomplete="name" placeholder="الاسم بالكامل"></label>
+            <label>رقم الهاتف<input id="cp" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX"></label>
+            <label>العنوان بالتفصيل<input id="ca" autocomplete="street-address" placeholder="المدينة، المنطقة، الشارع"></label>
+            <label>ملاحظات إضافية <span class="optional">(اختياري)</span><textarea id="co" rows="2" placeholder="أي تفاصيل تساعدنا في تجهيز طلبك"></textarea></label>
+            <p class="err" id="er" role="alert"></p>
+            <button class="btn wa" id="sd" type="submit">أكمل الطلب عبر واتساب <span aria-hidden="true">←</span></button>
+            <p class="note" id="nt"></p>
+            <button type="button" class="sm clear-cart" data-clear>تفريغ السلة</button>
+          </form>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
