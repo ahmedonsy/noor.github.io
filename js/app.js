@@ -164,6 +164,14 @@ $("#q").addEventListener("input",list);$("#clear-search").addEventListener("clic
 $("#fulfilment-choice").addEventListener("change",function(e){var input=e.target.closest('input[name="fulfilment"]');if(!input)return;fulfilment=input.value;writePref("mashtal_fulfilment_v1",fulfilment);renderFulfilment();lines()});
 $("#language-toggle").addEventListener("click",function(){var y=window.pageYOffset;lang=lang==="ar"?"en":"ar";writePref("mashtal_lang_v1",lang);applyLanguage();$("nav").scrollLeft=0;window.scrollTo(0,y)});
 $("#theme-switcher").addEventListener("change",function(){theme=this.value;writePref("mashtal_theme_v1",theme);document.documentElement.setAttribute("data-theme",theme)});
+var beeTrigger=$("#bee-flight-trigger"),heroVisual=$(".hero-visual");
+beeTrigger.addEventListener("click",function(){
+ if(heroVisual.classList.contains("bee-flight-running"))return;
+ heroVisual.classList.add("bee-flight-running")
+});
+beeTrigger.addEventListener("animationend",function(e){
+ if(e.animationName==="bee-flight")heroVisual.classList.remove("bee-flight-running")
+});
 applyLanguage();
 if(!branchId)$("#branch-overlay [data-branch]").focus();
 })();
