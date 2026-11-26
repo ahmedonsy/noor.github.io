@@ -7,7 +7,7 @@
   <title>جنة الرحمن | أعشاب ونباتات طبيعية</title>
   <meta name="description" id="meta-description" content="تسوّق أعشابًا ونباتات طبيعية طازجة ومجففة من جنة الرحمن. اختر منتجاتك وأكمل طلبك بسهولة عبر واتساب.">
   <link rel="icon" type="image/png" href="assets/images/banners/MyLogo.png">
-  <link rel="stylesheet" href="css/style.css?v=storefront-bilingual-3">
+  <link rel="stylesheet" href="css/style.css?v=branches-20261126-1">
 </head>
 <body>
   <header class="hd">
@@ -18,6 +18,9 @@
       </a>
       <nav aria-label="التنقل الرئيسي" data-i18n-aria="navLabel">
         <div class="site-controls">
+          <button class="branch-toggle" id="branch-toggle" type="button" aria-label="اختيار الفرع" data-i18n-aria="changeBranch">
+            <span aria-hidden="true">⌖</span><span id="branch-toggle-label">اختيار الفرع</span>
+          </button>
           <button class="language-toggle" id="language-toggle" type="button" aria-label="تغيير اللغة">EN</button>
           <label class="sr-only" for="theme-switcher" data-i18n="themeLabel">ألوان الموقع</label>
           <select id="theme-switcher" class="theme-switcher" aria-label="ألوان الموقع" data-i18n-aria="themeLabel">
@@ -34,6 +37,27 @@
       <a class="header-cta" href="#products"><span data-i18n="shopNow">تسوّق الآن</span><span aria-hidden="true" data-direction-arrow>←</span></a>
     </div>
   </header>
+
+  <div class="ov branch-overlay" id="branch-overlay" hidden>
+    <section class="branch-dialog" role="dialog" aria-modal="true" aria-labelledby="branch-title">
+      <span class="branch-eyebrow" data-i18n="branchEyebrow">أهلاً بك في جنة الرحمن</span>
+      <h2 id="branch-title" data-i18n="branchTitle">اختر الفرع للتسوق</h2>
+      <p class="branch-description" data-i18n="branchDescription">ستظهر لك المنتجات المتوفرة في الفرع الذي تختاره.</p>
+      <div class="branch-options">
+        <button class="branch-option" type="button" data-branch="taag-el-ezz">
+          <span class="branch-pin" aria-hidden="true">⌖</span>
+          <span><b data-i18n="branchTaagName">تاج العز</b><small data-i18n="branchTaagLocation">تمي الأمديد، الدقهلية</small></span>
+          <span class="branch-arrow" aria-hidden="true" data-direction-arrow>←</span>
+        </button>
+        <button class="branch-option" type="button" data-branch="nasr-city">
+          <span class="branch-pin" aria-hidden="true">⌖</span>
+          <span><b data-i18n="branchNasrName">مدينة نصر</b><small data-i18n="branchNasrLocation">القاهرة</small></span>
+          <span class="branch-arrow" aria-hidden="true" data-direction-arrow>←</span>
+        </button>
+      </div>
+      <p class="branch-note" data-i18n="branchCartNotice">عند تغيير الفرع، سيتم تفريغ السلة لتجنب اختلاف المنتجات المتاحة.</p>
+    </section>
+  </div>
 
   <main id="top">
     <section class="hero">
@@ -162,9 +186,9 @@
       </div>
     </aside>
   </div>
-  <script src="js/data.js?v=product-images-25112026-4"></script>
+  <script src="js/data.js?v=branches-20261126-1"></script>
   <script src="js/storage.js?v=product-images-25112026-4"></script>
-  <script src="js/i18n.js?v=bilingual-20261125-2"></script>
-  <script src="js/app.js?v=bilingual-20261125-3"></script>
+  <script src="js/i18n.js?v=branches-20261126-1"></script>
+  <script src="js/app.js?v=branches-20261126-1"></script>
 </body>
 </html>
