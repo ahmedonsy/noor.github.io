@@ -9,6 +9,15 @@ const TABS = [
   ["set", "الرئيسية والتواصل", "⌂"],
   ["bak", "النسخ الاحتياطي", "↥"],
 ];
+const BRANCHES = [
+  ["taag-el-ezz", "تاج العز – تمي الأمديد"],
+  ["nasr-city", "مدينة نصر – القاهرة"],
+];
+const STOCK_STATUSES = [
+  ["available", "متوفر"],
+  ["limited", "كمية محدودة"],
+  ["unavailable", "غير متوفر بهذا الفرع"],
+];
 const SETTINGS_FIELDS = [
   ["name", "اسم المشتل"],
   ["heroTitle", "عنوان الصفحة الرئيسية"],
@@ -22,6 +31,18 @@ const SETTINGS_FIELDS = [
   ["facebook", "رابط فيسبوك"],
   ["instagram", "رابط إنستجرام"],
 ];
+
+function branchStockFor(product, branchId) {
+  const status = product?.branchStock?.[branchId];
+  if (STOCK_STATUSES.some(([value]) => value === status)) return status;
+  return product?.id === "lemon" && branchId === "nasr-city" ? "unavailable" : "available";
+}
+
+function StockBadge({ status }) {
+  const label = STOCK_STATUSES.find(([value]) => value === status)?.[1] || "متوفر";
+  const className = status === "unavailable" ? "status-off" : status === "limited" ? "status-limited" : "";
+  return <span className={`status ${className}`}><i />{label}</span>;
+}
 
 function hashPassword(value) {
   if (window.crypto && window.crypto.subtle) {
@@ -156,6 +177,10 @@ function ProductForm({ product, categories, onCancel, onSave }) {
     featured: false,
     images: [],
     ...product,
+    branchStock: {
+      "taag-el-ezz": branchStockFor(product, "taag-el-ezz"),
+      "nasr-city": branchStockFor(product, "nasr-city"),
+    },
   }));
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
@@ -228,6 +253,7 @@ function ProductForm({ product, categories, onCancel, onSave }) {
       available: draft.available,
       featured: draft.featured,
       images: draft.images.slice(),
+      branchStock: { ...draft.branchStock },
     });
   }
 
@@ -265,8 +291,19 @@ function ProductForm({ product, categories, onCancel, onSave }) {
             <label className="field">الكمية المتاحة (اختياري)<input min="0" onChange={(event) => update("qty", event.target.value)} step="1" type="number" value={draft.qty} /></label>
           </div>
           <div className="switch-row">
-            <label><input checked={draft.available} onChange={(event) => update("available", event.target.checked)} type="checkbox" /> متوفر</label>
+            <label><input checked={draft.available} onChange={(event) => update("available", event.target.checked)} type="checkbox" /> متوفر عمومًا</label>
             <label><input checked={draft.featured} onChange={(event) => update("featured", event.target.checked)} type="checkbox" /> منتج مميز</label>
+          </div>
+          <div className="branch-stock">
+            <h4>التوفر حسب الفرع</h4>
+            <p className="muted">يُخفى المنتج من الفرع عند اختيار «غير متوفر بهذا الفرع».</p>
+            {BRANCHES.map(([id, name]) => (
+              <label className="field" key={id}>{name}
+                <select onChange={(event) => update("branchStock", { ...draft.branchStock, [id]: event.target.value })} value={draft.branchStock[id]}>
+                  {STOCK_STATUSES.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+                </select>
+              </label>
+            ))}
           </div>
         </section>
         <section className="editor-card">
@@ -329,13 +366,15 @@ function Products({ data, onEdit, onSave, onChange }) {
       </div>
       {!data.products.length ? <div className="empty-state"><span>✿</span><h3>لم تضف أي منتجات بعد</h3><p>ابدأ بإضافة أول منتج ليظهر في متجرك.</p><button className="btn" onClick={() => setEditing("new")} type="button">إضافة أول منتج</button></div> :
         <div className="table-scroll"><table className="product-table">
-          <thead><tr><th>المنتج</th><th>التصنيف</th><th>السعر</th><th>الكمية</th><th>الحالة</th><th>إجراءات</th></tr></thead>
+          <thead><tr><th>المنتج</th><th>التصنيف</th><th>السعر</th><th>الكمية</th><th>تاج العز</th><th>مدينة نصر</th><th>الحالة العامة</th><th>إجراءات</th></tr></thead>
           <tbody>{data.products.map((product) => (
             <tr key={product.id}>
               <td><div className="product-cell"><img alt="" src={(product.images || [])[0] || "assets/icons/leaf.svg"} /><span><b>{product.name}{product.featured && <span className="featured-star" title="منتج مميز"> ★</span>}</b><small>{product.sellBy === "kg" ? "بالوزن" : product.unit || "بالقطعة"}</small></span></div></td>
               <td>{categoryName(product.cat)}</td>
               <td><b>{product.price}</b> <small>جنيه</small></td>
               <td>{product.qty === "" || product.qty == null ? "غير محدد" : product.qty}</td>
+              <td><StockBadge status={branchStockFor(product, "taag-el-ezz")} /></td>
+              <td><StockBadge status={branchStockFor(product, "nasr-city")} /></td>
               <td><span className={`status ${product.available === false ? "status-off" : ""}`}><i />{product.available === false ? "غير متاح" : "متاح"}</span></td>
               <td><div className="table-actions">
                 <button className="icon-button" onClick={() => setEditing(product)} type="button">تعديل</button>

@@ -8,7 +8,7 @@ window.SEED_DATA={
   "phone": "",
   "address": "",
   "hours": "",
-  "facebook": "",
+  "facebook": "https://www.facebook.com/share/19gQQ2j3S2/",
   "instagram": "",
   "delivery": ""
  },

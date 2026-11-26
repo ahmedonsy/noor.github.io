@@ -234,6 +234,12 @@ section .section-heading h2{margin:0;color:var(--forest);font-size:32px}
 .f label{color:#48584c;font-size:12px}
 .f input,.f textarea{border-color:#e1e6dd;border-radius:9px;background:#fff;font-size:13px}
 .f input::placeholder,.f textarea::placeholder{color:#a1aaa1;font-size:12px}
+.fulfilment-choice{margin:12px 0;padding:0;border:0}
+.fulfilment-choice legend{margin-bottom:7px;color:#48584c;font-size:12px;font-weight:700}
+.fulfilment-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.f .fulfilment-option{display:flex;align-items:center;gap:8px;margin:0;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--card);cursor:pointer}
+.f .fulfilment-option input{width:18px;min-width:18px;min-height:18px;margin:0;accent-color:var(--forest)}
+.fulfilment-hint{margin:4px 0 10px;padding:9px 11px;border-radius:9px;background:var(--soft-green);color:var(--deep);font-size:11px;line-height:1.6}
 .optional{color:#8e988f;font-size:10px;font-weight:400}
 .btn.wa{min-height:47px;border-radius:10px}
 .clear-cart{width:100%;margin-top:6px;background:#fff;color:#777}
