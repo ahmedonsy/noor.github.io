@@ -106,12 +106,12 @@ function order(e){e.preventDefault();var er=$("#er"),n=$("#cn").value.trim(),ph=
  if(!/^(\+?20|0)1[0125]\d{8}$/.test(ph)){er.textContent=t("errorPhone");return}
  if(fulfilment==="delivery"&&a.length<5){er.textContent=t("errorAddress");return}
  if(!wa()){er.textContent=t("errorWhatsapp");return}
- er.textContent="";var sub=0,m=[t("orderIntro").replace("{name}",brandName()),t("orderBranch")+": "+branchName(branchId),t("fulfilmentLabel")+": "+t(fulfilment)];
+ er.textContent="";var m=[t("orderIntro").replace("{name}",brandName()),t("orderBranch")+": "+branchName(branchId),t("fulfilmentLabel")+": "+t(fulfilment)];
  if(fulfilment==="delivery")m.push(t("customerAddress")+" "+a,t("deliveryFeeNotice"));
  else m.push(t("pickupAtBranch").replace("{branch}",branchName(branchId)));
  m.push("",""+t("customerDetails"),t("customerName")+" "+n,t("customerPhone")+" "+ph);if(o)m.push(t("customerNotes")+" "+o);m.push("",""+t("orderDetails"));
- cart.forEach(function(c,i){var p=find(c.id),u=up(p,c.g);sub+=u*c.q;m.push("",""+(i+1)+". "+pname(p),c.g?t("weightPrefix")+" "+wl(c.g):t("unitPrefix")+" "+t("perContainer"),t("quantity")+" "+c.q,t("unitPrice")+" "+egp(u),t("lineTotal")+" "+egp(u*c.q))});
- var dv=delivery(),feeText=fulfilment==="pickup"?t("pickupNoFee"):dv==null?t("confirmDelivery"):egp(dv);m.push("",""+t("subtotalPrefix")+" "+egp(sub),t("deliveryPrefix")+" "+feeText,t("finalTotal")+" "+egp(sub+(dv||0))+(dv==null?" ("+t("withoutDelivery")+")":""),"",t("thanks"));
+ cart.forEach(function(c,i){var p=find(c.id);m.push("",""+(i+1)+". "+pname(p),c.g?t("weightPrefix")+" "+wl(c.g):t("unitPrefix")+" "+t("perContainer"),t("quantity")+" "+c.q)});
+ m.push("",""+t("priceConfirmationNotice"),"",t("thanks"));
  var u=wa(m.join("\n")),l=document.createElement("a");l.href=u;l.target="_blank";l.rel="noopener noreferrer";document.body.appendChild(l);l.click();l.remove();
  $("#nt").innerHTML=t("orderReady")+' <a href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">'+t("here")+"</a>."}
 document.addEventListener("click",function(e){var t=e.target,b;

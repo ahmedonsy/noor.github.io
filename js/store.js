@@ -13,7 +13,7 @@ function list(){var q=$("#q").value.trim(),c=$("#cat").value,s=$("#sort").value;
  l.sort(function(a,b){return s==="asc"?a.price-b.price:s==="desc"?b.price-a.price:(b.created||0)-(a.created||0)});
  $("#gp").innerHTML=l.map(card).join("");$("#empty").hidden=l.length>0}
 function show(id){var p=find(id);if(!p)return;var im=p.images&&p.images.length?p.images:["assets/icons/leaf.svg"];
- var c=D.categories.filter(function(x){return x.id===p.cat})[0],w=wa("مرحباً، أريد الاستفسار عن/طلب: "+p.name+" ("+money(p.price)+" "+(p.unit||"")+")");
+ var c=D.categories.filter(function(x){return x.id===p.cat})[0],w=wa("مرحباً، أريد الاستفسار عن/طلب: "+p.name+". يرجى تأكيد السعر النهائي من المتجر.");
  $("#md").innerHTML='<button class="x" data-close aria-label="إغلاق">✕</button><img class="main" id="mi" src="'+esc(im[0])+'" alt="'+esc(p.name)+'">'+(im.length>1?'<div class="th">'+im.map(function(s){return'<img data-src="'+esc(s)+'" src="'+esc(s)+'" alt="">'}).join("")+"</div>":"")+'<h2>'+esc(p.name)+'</h2>'+(c?'<p class="note">'+esc(c.name)+'</p>':"")+'<div class="price">'+money(p.price)+(isOffer(p)?' <s>'+money(p.oldPrice)+'</s>':"")+' <small>'+esc(p.unit)+'</small></div><p>'+esc(p.desc)+'</p><p>الحالة: <b>'+(p.available===false?"غير متاح حاليًا":"متاح")+'</b>'+(p.qty!==""&&p.qty!=null&&p.available!==false?" · الكمية المتاحة: "+esc(p.qty):"")+'</p>'+(w&&p.available!==false?'<a class="btn wa" target="_blank" rel="noopener noreferrer" href="'+w+'">اطلب عبر واتساب</a>':"");
  $("#ov").hidden=false}
 function init(){document.title=S.name+" | أعشاب ونباتات طبيعية";$("#logo").textContent=S.name;$("#fn").textContent=S.name;
