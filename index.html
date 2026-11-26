@@ -7,19 +7,28 @@
   <title>جنة الرحمن | أعشاب ونباتات طبيعية</title>
   <meta name="description" id="meta-description" content="تسوّق أعشابًا ونباتات طبيعية طازجة ومجففة من جنة الرحمن. اختر منتجاتك وأكمل طلبك بسهولة عبر واتساب.">
   <link rel="icon" type="image/png" href="assets/images/banners/MyLogo.png">
-  <link rel="stylesheet" href="css/style.css?v=side-menu-20261126-1">
+  <link rel="stylesheet" href="css/style.css?v=header-toolbar-20261126-2">
 </head>
 <body>
   <header class="hd">
     <div class="wrap bar">
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="فتح القائمة" aria-controls="side-menu" aria-expanded="false" data-i18n-aria="openMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
       <a class="logo" href="#top" aria-label="جنة الرحمن - الصفحة الرئيسية" data-i18n-aria="homeLabel">
         <img class="logo-mark" src="assets/images/banners/MyLogo.png" alt="" aria-hidden="true">
         <span id="logo">المشتل</span>
       </a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="فتح القائمة" aria-controls="side-menu" aria-expanded="false" data-i18n-aria="openMenu">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
-      <a class="header-cta" href="#products"><span data-i18n="shopNow">تسوّق الآن</span><span aria-hidden="true" data-direction-arrow>←</span></a>
+      <div class="site-controls header-tools">
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="تغيير اللغة">EN</button>
+        <label class="sr-only" for="theme-switcher" data-i18n="themeLabel">ألوان الموقع</label>
+        <select id="theme-switcher" class="theme-switcher" aria-label="ألوان الموقع" data-i18n-aria="themeLabel">
+          <option value="garden" data-theme-label="garden">أخضر المشتل</option>
+          <option value="sunshine" data-theme-label="sunshine">شمسي ذهبي</option>
+          <option value="ocean" data-theme-label="ocean">أزرق هادئ</option>
+        </select>
+        <a class="header-cta" href="#products"><span data-i18n="shopNow">تسوّق الآن</span><span aria-hidden="true" data-direction-arrow>←</span></a>
+      </div>
     </div>
   </header>
 
@@ -34,13 +43,6 @@
         <button class="branch-toggle" id="branch-toggle" type="button" aria-label="اختيار الفرع" data-i18n-aria="changeBranch">
           <span aria-hidden="true">⌖</span><span id="branch-toggle-label">اختيار الفرع</span>
         </button>
-        <button class="language-toggle" id="language-toggle" type="button" aria-label="تغيير اللغة">EN</button>
-        <label class="sr-only" for="theme-switcher" data-i18n="themeLabel">ألوان الموقع</label>
-        <select id="theme-switcher" class="theme-switcher" aria-label="ألوان الموقع" data-i18n-aria="themeLabel">
-          <option value="garden" data-theme-label="garden">أخضر المشتل</option>
-          <option value="sunshine" data-theme-label="sunshine">شمسي ذهبي</option>
-          <option value="ocean" data-theme-label="ocean">أزرق هادئ</option>
-        </select>
       </div>
       <nav class="side-navigation" id="site-navigation" aria-label="التنقل الرئيسي" data-i18n-aria="navLabel">
         <a href="#products" data-i18n="products">المنتجات</a>
