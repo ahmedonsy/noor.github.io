@@ -1,6 +1,6 @@
 (function(){
 "use strict";
-var D=DB.get(),S=D.settings,$=function(s){return document.querySelector(s)},cat="",cart=[],CK="mashtal_cart_v1",lastFocus=null,currentModal=null;
+var D=DB.get(),S=D.settings,$=function(s){return document.querySelector(s)},cat="",cart=[],CK="mashtal_cart_v1",lastFocus=null,currentModal=null,menuPreviousOverflow="";
 function readPref(key,allowed,fallback){try{var value=localStorage.getItem(key);return allowed.indexOf(value)>-1?value:fallback}catch(e){return fallback}}
 function writePref(key,value){try{localStorage.setItem(key,value)}catch(e){}}
 var lang=readPref("mashtal_lang_v1",["ar","en"],"ar"),theme=readPref("mashtal_theme_v1",["garden","sunshine","ocean"],"garden"),branchId=readPref("mashtal_branch_v1",["taag-el-ezz","nasr-city"],null),fulfilment=readPref("mashtal_fulfilment_v1",["pickup","delivery"],"");
@@ -37,7 +37,7 @@ function chooseBranch(id){
  if(branchId!==id&&cart.length){cart=[];saveCart()}
  branchId=id;writePref("mashtal_branch_v1",id);cat="";$("#q").value="";$("#clear-search").hidden=true;
  if(currentModal&&!availableAtBranch(find(currentModal),id)){$("#ov").hidden=true;currentModal=null}
- renderBranch();applyLanguage();$("#branch-toggle").focus()
+ renderBranch();applyLanguage();closeMenu();$("#menu-toggle").focus()
 }
 function applyLanguage(){
  var c=locale(),nodes;
@@ -97,6 +97,8 @@ function upd(){saveCart();badge();lines()}
 function add(p,g){if(productStockStatus(p,branchId)==="unavailable"||!availableAtBranch(p,branchId))return;var k=cart.filter(function(c){return c.id===p.id&&c.g===g})[0];if(k)k.q=Math.min(99,k.q+1);else cart.push({id:p.id,g:g,q:1});upd();var f=$("#fab");f.animate([{transform:"scale(1)"},{transform:"scale(1.18)"},{transform:"scale(1)"}],{duration:300})}
 function openCart(){lastFocus=document.activeElement;lines();$("#cv").classList.add("on");document.body.style.overflow="hidden";$("[data-close-cart].x").focus()}
 function closeCart(){$("#cv").classList.remove("on");document.body.style.overflow="";if(lastFocus)lastFocus.focus()}
+function openMenu(){menuPreviousOverflow=document.body.style.overflow;$("#menu-overlay").hidden=false;document.body.style.overflow="hidden";$("#menu-toggle").setAttribute("aria-expanded","true");$("#menu-close").focus()}
+function closeMenu(restoreFocus){if($("#menu-overlay").hidden)return;$("#menu-overlay").hidden=true;document.body.style.overflow=menuPreviousOverflow;$("#menu-toggle").setAttribute("aria-expanded","false");if(restoreFocus!==false)$("#menu-toggle").focus()}
 function order(e){e.preventDefault();var er=$("#er"),n=$("#cn").value.trim(),ph=$("#cp").value.replace(/[\s-]/g,""),a=$("#ca").value.trim(),o=$("#co").value.trim();
  if(!branchId){er.textContent=t("branchRequired");return}
  if(!cart.length){er.textContent=t("errorCart");return}
@@ -106,15 +108,18 @@ function order(e){e.preventDefault();var er=$("#er"),n=$("#cn").value.trim(),ph=
  if(!/^(\+?20|0)1[0125]\d{8}$/.test(ph)){er.textContent=t("errorPhone");return}
  if(fulfilment==="delivery"&&a.length<5){er.textContent=t("errorAddress");return}
  if(!wa()){er.textContent=t("errorWhatsapp");return}
- er.textContent="";var m=[t("orderIntro").replace("{name}",brandName()),t("orderBranch")+": "+branchName(branchId),t("fulfilmentLabel")+": "+t(fulfilment)];
+ er.textContent="";var sub=0,m=[t("orderIntro").replace("{name}",brandName()),t("orderBranch")+": "+branchName(branchId),t("fulfilmentLabel")+": "+t(fulfilment)];
  if(fulfilment==="delivery")m.push(t("customerAddress")+" "+a,t("deliveryFeeNotice"));
  else m.push(t("pickupAtBranch").replace("{branch}",branchName(branchId)));
  m.push("",""+t("customerDetails"),t("customerName")+" "+n,t("customerPhone")+" "+ph);if(o)m.push(t("customerNotes")+" "+o);m.push("",""+t("orderDetails"));
- cart.forEach(function(c,i){var p=find(c.id);m.push("",""+(i+1)+". "+pname(p),c.g?t("weightPrefix")+" "+wl(c.g):t("unitPrefix")+" "+t("perContainer"),t("quantity")+" "+c.q)});
- m.push("",""+t("priceConfirmationNotice"),"",t("thanks"));
+ cart.forEach(function(c,i){var p=find(c.id),u=up(p,c.g);sub+=u*c.q;m.push("",""+(i+1)+". "+pname(p),c.g?t("weightPrefix")+" "+wl(c.g):t("unitPrefix")+" "+t("perContainer"),t("quantity")+" "+c.q,t("unitPrice")+" "+egp(u),t("lineTotal")+" "+egp(u*c.q))});
+ var dv=delivery(),feeText=fulfilment==="pickup"?t("pickupNoFee"):dv==null?t("confirmDelivery"):egp(dv);m.push("",""+t("subtotalPrefix")+" "+egp(sub),t("deliveryPrefix")+" "+feeText,t("finalTotal")+" "+egp(sub+(dv||0))+(dv==null?" ("+t("withoutDelivery")+")":""),"",t("priceConfirmationNotice"),"",t("thanks"));
  var u=wa(m.join("\n")),l=document.createElement("a");l.href=u;l.target="_blank";l.rel="noopener noreferrer";document.body.appendChild(l);l.click();l.remove();
  $("#nt").innerHTML=t("orderReady")+' <a href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">'+t("here")+"</a>."}
 document.addEventListener("click",function(e){var t=e.target,b;
+ if(t.closest("#menu-toggle")){openMenu();return}
+ if(t.closest("[data-close-menu]")){closeMenu();return}
+ if(t.closest("#site-navigation a")){closeMenu(false);return}
  if((b=t.closest("[data-branch]"))){chooseBranch(b.dataset.branch);return}
  if(t.closest("#branch-toggle")){$("#branch-overlay").hidden=false;$("#branch-overlay [data-branch]").focus();return}
  if((b=t.closest("[data-add]"))){var p=find(b.dataset.add),box=b.closest(".card,#md"),s=box.querySelector("select.w"),g=0;
@@ -140,10 +145,19 @@ document.addEventListener("keydown",function(e){
   }
   return
  }
+ if(!$("#menu-overlay").hidden){
+  if(e.key==="Escape"){e.preventDefault();closeMenu();return}
+  if(e.key==="Tab"){
+   var focusables=Array.prototype.filter.call($("#side-menu").querySelectorAll('a[href],button:not([disabled]),select:not([disabled]),input:not([disabled]),textarea:not([disabled])'),function(el){return el.getClientRects().length}),i=focusables.indexOf(document.activeElement);
+   if(e.shiftKey&&i<=0){e.preventDefault();focusables[focusables.length-1].focus()}
+   else if(!e.shiftKey&&i===focusables.length-1){e.preventDefault();focusables[0].focus()}
+  }
+  return
+ }
  if(e.key==="Escape"){$("#ov").hidden=true;currentModal=null;if($("#cv").classList.contains("on"))closeCart()}
 });
-function renderContact(){var ct=[];if(S.phone)ct.push('<a class="contact-detail" href="tel:'+esc(S.phone)+'"><span class="contact-icon" aria-hidden="true">☎</span><span><small>'+t("contactCall")+'</small><b>'+esc(S.phone)+'</b></span></a>');if(S.address)ct.push('<div class="contact-detail"><span class="contact-icon" aria-hidden="true">⌖</span><span><small>'+t("contactAddress")+'</small><b>'+esc(S.address)+'</b></span></div>');if(S.hours)ct.push('<div class="contact-detail"><span class="contact-icon" aria-hidden="true">◷</span><span><small>'+t("contactHours")+'</small><b>'+esc(S.hours)+'</b></span></div>');
- [["facebook",S.facebook||window.SEED_DATA.settings.facebook],["instagram",S.instagram]].forEach(function(k){if(/^https?:\/\//.test(k[1]||""))ct.push('<a class="social-link" href="'+esc(k[1])+'" target="_blank" rel="noopener noreferrer">'+t(k[0])+' <span aria-hidden="true">↗</span></a>')});
+function renderContact(){var ct=[],facebookUrl=S.facebook||window.SEED_DATA.settings.facebook,facebookLink=$("#footer-facebook");facebookLink.hidden=!/^https?:\/\//.test(facebookUrl||"");if(!facebookLink.hidden)facebookLink.href=facebookUrl;if(S.phone)ct.push('<a class="contact-detail" href="tel:'+esc(S.phone)+'"><span class="contact-icon" aria-hidden="true">☎</span><span><small>'+t("contactCall")+'</small><b>'+esc(S.phone)+'</b></span></a>');if(S.address)ct.push('<div class="contact-detail"><span class="contact-icon" aria-hidden="true">⌖</span><span><small>'+t("contactAddress")+'</small><b>'+esc(S.address)+'</b></span></div>');if(S.hours)ct.push('<div class="contact-detail"><span class="contact-icon" aria-hidden="true">◷</span><span><small>'+t("contactHours")+'</small><b>'+esc(S.hours)+'</b></span></div>');
+ [["instagram",S.instagram]].forEach(function(k){if(/^https?:\/\//.test(k[1]||""))ct.push('<a class="social-link" href="'+esc(k[1])+'" target="_blank" rel="noopener noreferrer">'+t(k[0])+' <span aria-hidden="true">↗</span></a>')});
  var w=wa(t("whatsappInquiry"));if(w)ct.push('<a class="btn wa contact-wa" href="'+esc(w)+'" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> '+t("askWhatsapp")+' <span aria-hidden="true">'+arrow()+"</span></a>");
  $("#cl2").innerHTML=ct.join("")}
 $("#q").addEventListener("input",list);$("#clear-search").addEventListener("click",function(){$("#q").value="";this.hidden=true;$("#q").focus();list()});$("#cf").addEventListener("submit",order);

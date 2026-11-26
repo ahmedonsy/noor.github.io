@@ -7,7 +7,7 @@
   <title>جنة الرحمن | أعشاب ونباتات طبيعية</title>
   <meta name="description" id="meta-description" content="تسوّق أعشابًا ونباتات طبيعية طازجة ومجففة من جنة الرحمن. اختر منتجاتك وأكمل طلبك بسهولة عبر واتساب.">
   <link rel="icon" type="image/png" href="assets/images/banners/MyLogo.png">
-  <link rel="stylesheet" href="css/style.css?v=stock-20261126-1">
+  <link rel="stylesheet" href="css/style.css?v=side-menu-20261126-1">
 </head>
 <body>
   <header class="hd">
@@ -16,27 +16,40 @@
         <img class="logo-mark" src="assets/images/banners/MyLogo.png" alt="" aria-hidden="true">
         <span id="logo">المشتل</span>
       </a>
-      <nav aria-label="التنقل الرئيسي" data-i18n-aria="navLabel">
-        <div class="site-controls">
-          <button class="branch-toggle" id="branch-toggle" type="button" aria-label="اختيار الفرع" data-i18n-aria="changeBranch">
-            <span aria-hidden="true">⌖</span><span id="branch-toggle-label">اختيار الفرع</span>
-          </button>
-          <button class="language-toggle" id="language-toggle" type="button" aria-label="تغيير اللغة">EN</button>
-          <label class="sr-only" for="theme-switcher" data-i18n="themeLabel">ألوان الموقع</label>
-          <select id="theme-switcher" class="theme-switcher" aria-label="ألوان الموقع" data-i18n-aria="themeLabel">
-            <option value="garden" data-theme-label="garden">أخضر المشتل</option>
-            <option value="sunshine" data-theme-label="sunshine">شمسي ذهبي</option>
-            <option value="ocean" data-theme-label="ocean">أزرق هادئ</option>
-          </select>
-        </div>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="فتح القائمة" aria-controls="side-menu" aria-expanded="false" data-i18n-aria="openMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a class="header-cta" href="#products"><span data-i18n="shopNow">تسوّق الآن</span><span aria-hidden="true" data-direction-arrow>←</span></a>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menu-overlay" hidden>
+    <button class="menu-backdrop" type="button" data-close-menu aria-label="إغلاق القائمة" data-i18n-aria="closeMenu"></button>
+    <aside class="side-menu" id="side-menu" role="dialog" aria-modal="true" aria-labelledby="side-menu-title">
+      <div class="side-menu-header">
+        <h2 id="side-menu-title" data-i18n="navLabel">التنقل الرئيسي</h2>
+        <button class="menu-close" id="menu-close" type="button" data-close-menu aria-label="إغلاق القائمة" data-i18n-aria="closeMenu">×</button>
+      </div>
+      <div class="site-controls">
+        <button class="branch-toggle" id="branch-toggle" type="button" aria-label="اختيار الفرع" data-i18n-aria="changeBranch">
+          <span aria-hidden="true">⌖</span><span id="branch-toggle-label">اختيار الفرع</span>
+        </button>
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="تغيير اللغة">EN</button>
+        <label class="sr-only" for="theme-switcher" data-i18n="themeLabel">ألوان الموقع</label>
+        <select id="theme-switcher" class="theme-switcher" aria-label="ألوان الموقع" data-i18n-aria="themeLabel">
+          <option value="garden" data-theme-label="garden">أخضر المشتل</option>
+          <option value="sunshine" data-theme-label="sunshine">شمسي ذهبي</option>
+          <option value="ocean" data-theme-label="ocean">أزرق هادئ</option>
+        </select>
+      </div>
+      <nav class="side-navigation" id="site-navigation" aria-label="التنقل الرئيسي" data-i18n-aria="navLabel">
         <a href="#products" data-i18n="products">المنتجات</a>
         <a href="#offers" data-i18n="offers">العروض</a>
         <a href="#about" data-i18n="aboutNav">عن المشتل</a>
         <a href="#contact" data-i18n="contact">تواصل معنا</a>
       </nav>
-      <a class="header-cta" href="#products"><span data-i18n="shopNow">تسوّق الآن</span><span aria-hidden="true" data-direction-arrow>←</span></a>
-    </div>
-  </header>
+    </aside>
+  </div>
 
   <div class="ov branch-overlay" id="branch-overlay" hidden>
     <section class="branch-dialog" role="dialog" aria-modal="true" aria-labelledby="branch-title">
@@ -155,7 +168,7 @@
     <div class="wrap footer-inner">
       <a class="footer-brand" href="#top"><img class="footer-logo" src="assets/images/banners/MyLogo.png" alt="" aria-hidden="true"><b id="fn"></b></a>
       <span class="footer-note" data-i18n="footerNote">اختيارات طبيعية، بعناية ومحبة</span>
-      <div class="footer-links"><a href="#products" data-i18n="footerProducts">المنتجات</a><a href="#contact" data-i18n="footerContact">تواصل معنا</a><a href="admin.html" data-i18n="footerAdmin">لوحة الإدارة</a></div>
+      <div class="footer-links"><a href="#products" data-i18n="footerProducts">المنتجات</a><a href="#contact" data-i18n="footerContact">تواصل معنا</a><a href="admin.html" data-i18n="footerAdmin">لوحة الإدارة</a><a class="footer-facebook" id="footer-facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك" data-i18n-aria="facebook" hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.028 10.125 11.878v-8.398H7.078v-3.48h3.047V9.424c0-3.02 1.792-4.691 4.533-4.691 1.312 0 2.686.235 2.686.235v2.976h-1.513c-1.491 0-1.956.93-1.956 1.886v2.263h3.328l-.532 3.48h-2.796v8.398C19.612 23.101 24 18.092 24 12.073Z"/></svg></a></div>
     </div>
   </footer>
 
@@ -198,7 +211,7 @@
   </div>
   <script src="js/data.js?v=stock-20261126-1"></script>
   <script src="js/storage.js?v=product-images-25112026-4"></script>
-  <script src="js/i18n.js?v=price-confirm-20261126-1"></script>
-  <script src="js/app.js?v=price-confirm-20261126-1"></script>
+  <script src="js/i18n.js?v=side-menu-20261126-1"></script>
+  <script src="js/app.js?v=side-menu-20261126-1"></script>
 </body>
 </html>
